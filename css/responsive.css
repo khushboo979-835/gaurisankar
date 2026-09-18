@@ -12,21 +12,35 @@
   .navbar__logo-img {
     height: 55px;
   }
-  .footer__top-row {
-    grid-template-columns: 36% 64%;
-    gap: 28px;
+  .footer__brand-col {
+    flex: 0 0 36%;
+    max-width: 36%;
+  }
+  .footer__branches-col {
+    flex: 0 0 62%;
+    max-width: 62%;
   }
 }
 
 @media (max-width: 992px) {
   .footer__top-row {
-    grid-template-columns: 1fr;
-    gap: 35px;
+    flex-direction: column !important;
+    gap: 35px !important;
+  }
+
+  .footer__brand-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .footer__branches-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 
   .footer__branches-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
   }
 
   .branch-hero__inner {
