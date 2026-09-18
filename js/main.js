@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (contactForm) {
           contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
-          const text = `Hello Hansraj Enterprises,%0A%0AI want to book: ${encodeURIComponent(service)}`;
-          window.open(`https://wa.me/917752083960?text=${text}`, '_blank');
+          const text = `Hello Gouri RO Service,%0A%0AI want to book: ${encodeURIComponent(service)}`;
+          window.open(`https://wa.me/917608841410?text=${text}`, '_blank');
         }
       });
     });
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = document.getElementById('formService').value;
       const message = document.getElementById('formMessage').value.trim();
 
-      const text = `Hello Hansraj Enterprises,%0A%0ANew Service Request from Website:%0A• Name: ${encodeURIComponent(name)}%0A• Phone: ${encodeURIComponent(phone)}%0A• Service: ${encodeURIComponent(service)}%0A• Address/Issue: ${encodeURIComponent(message)}`;
+      const text = `Hello Gouri RO Service,%0A%0ANew Service Request from Website:%0A• Name: ${encodeURIComponent(name)}%0A• Phone: ${encodeURIComponent(phone)}%0A• Service: ${encodeURIComponent(service)}%0A• Address/Issue: ${encodeURIComponent(message)}`;
       
-      window.open(`https://wa.me/917752083960?text=${text}`, '_blank');
+      window.open(`https://wa.me/917608841410?text=${text}`, '_blank');
       contactForm.reset();
     });
   }
