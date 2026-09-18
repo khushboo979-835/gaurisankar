@@ -30,68 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3500);
   }
 
-  // Modal logic
-  const modalOverlay = document.getElementById('bookingModal');
-  const modalClose = document.getElementById('modalClose');
+  // Direct CTAs to Contact Form or WhatsApp (No popup modal)
   const openModalBtns = document.querySelectorAll('.js-open-modal');
-
-  function openModal(serviceName = '') {
-    if (modalOverlay) {
-      if (serviceName) {
-        const select = document.getElementById('modalService');
-        if (select) select.value = serviceName;
-      }
-      modalOverlay.classList.add('active');
-    }
-  }
-
-  function closeModal() {
-    if (modalOverlay) modalOverlay.classList.remove('active');
-  }
-
   if (openModalBtns.length) {
     openModalBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const service = btn.getAttribute('data-service') || '';
-        openModal(service);
+        const service = btn.getAttribute('data-service') || 'General RO Service';
+        const contactForm = document.getElementById('contactForm') || document.getElementById('branchBookingForm');
+        if (contactForm) {
+          contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          const text = `Hello Hansraj Enterprises,%0A%0AI want to book: ${encodeURIComponent(service)}`;
+          window.open(`https://wa.me/917752083960?text=${text}`, '_blank');
+        }
       });
-    });
-  }
-
-  if (modalClose) {
-    modalClose.addEventListener('click', closeModal);
-  }
-
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
-  }
-
-  // Auto popup after 5 seconds on homepage (only once per session)
-  if (!sessionStorage.getItem('roPopupShown') && document.getElementById('homePageMarker')) {
-    setTimeout(() => {
-      openModal();
-      sessionStorage.setItem('roPopupShown', 'true');
-    }, 5000);
-  }
-
-  // Modal Form Submit -> Direct WhatsApp
-  const bookingForm = document.getElementById('modalBookingForm');
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('modalName').value.trim();
-      const phone = document.getElementById('modalPhone').value.trim();
-      const service = document.getElementById('modalService').value;
-      const address = document.getElementById('modalAddress').value.trim();
-
-      const text = `Hello Gouri RO Aquaguard Service,%0A%0AI want to book RO service in Bhubaneswar:%0A• Name: ${encodeURIComponent(name)}%0A• Phone: ${encodeURIComponent(phone)}%0A• Service: ${encodeURIComponent(service)}%0A• Location: ${encodeURIComponent(address)}`;
-      
-      window.open(`https://wa.me/917608841410?text=${text}`, '_blank');
-      closeModal();
-      bookingForm.reset();
     });
   }
 
@@ -105,9 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = document.getElementById('formService').value;
       const message = document.getElementById('formMessage').value.trim();
 
-      const text = `Hello Gouri RO Aquaguard Service,%0A%0ANew Service Request from Website:%0A• Name: ${encodeURIComponent(name)}%0A• Phone: ${encodeURIComponent(phone)}%0A• Service: ${encodeURIComponent(service)}%0A• Address/Issue: ${encodeURIComponent(message)}`;
+      const text = `Hello Hansraj Enterprises,%0A%0ANew Service Request from Website:%0A• Name: ${encodeURIComponent(name)}%0A• Phone: ${encodeURIComponent(phone)}%0A• Service: ${encodeURIComponent(service)}%0A• Address/Issue: ${encodeURIComponent(message)}`;
       
-      window.open(`https://wa.me/917608841410?text=${text}`, '_blank');
+      window.open(`https://wa.me/917752083960?text=${text}`, '_blank');
       contactForm.reset();
     });
   }
