@@ -1,0 +1,225 @@
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 1100px) {
+  .navbar__menu {
+    gap: 16px;
+  }
+  .navbar__nav {
+    gap: 18px;
+  }
+  .navbar__logo-img {
+    height: 55px;
+  }
+  .footer__top-row {
+    grid-template-columns: 36% 64%;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer__top-row {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer__branches-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .branch-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .navbar__nav {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 24px 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    gap: 20px;
+  }
+
+  .navbar__nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .navbar__actions {
+    display: none; /* Shown in header directly */
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .navbar__hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar__hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .section__title {
+    font-size: 2rem;
+  }
+}
+
+/* MOBILE NAVBAR WITH VISIBLE BUTTONS (IMAGE 1 MATCH) */
+.mobile-header-actions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+
+  .mobile-header-actions {
+    display: flex;
+  }
+
+  .navbar__logo-img {
+    height: 52px;
+  }
+
+  .hero-slider-wrap {
+    height: 230px;
+  }
+
+  .hero-card__title {
+    font-size: 1.6rem;
+  }
+
+  .hero-card__btn-phone {
+    font-size: 1.15rem;
+  }
+
+  .section {
+    padding: 45px 0;
+  }
+
+  .footer__branches-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .footer__helpline-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .branch-hero__title {
+    font-size: 1.75rem;
+  }
+
+  .floating-left-actions {
+    bottom: 18px;
+    left: 14px;
+    gap: 10px;
+  }
+
+  .floating-btn-round {
+    width: 46px;
+    height: 46px;
+    font-size: 1.3rem;
+  }
+
+  .floating-right-chat {
+    bottom: 18px;
+    right: 14px;
+  }
+
+  .chat-bubble-label {
+    display: none; /* Keep clean on small mobile */
+  }
+
+  .chat-bubble-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+
+  .pricing-table thead {
+    display: none;
+  }
+  .pricing-table tbody tr {
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .pricing-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--color-border);
+  }
+  .pricing-table tbody td:last-child {
+    border-bottom: none;
+  }
+  .pricing-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo-img {
+    height: 44px;
+  }
+  
+  .mobile-header-actions .btn {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .hero-card__body {
+    padding: 20px 16px 25px;
+  }
+  .hero-card__title {
+    font-size: 1.45rem;
+  }
+  .hero-card__subtitle {
+    font-size: 0.95rem;
+  }
+  .section__title {
+    font-size: 1.7rem;
+  }
+  .fast-banner__inner {
+    font-size: 0.98rem;
+  }
+}
